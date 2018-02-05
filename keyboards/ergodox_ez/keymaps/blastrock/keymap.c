@@ -177,28 +177,53 @@ void matrix_init_user(void) {
 #endif
 };
 
+void send_mod_string(bool shift, unsigned key1, unsigned key2) {
+  const uint8_t mods = get_mods();
+  if (mods & MOD_BIT(KC_LSHIFT))
+    unregister_code(KC_LSHIFT);
+  if (mods & MOD_BIT(KC_RSHIFT))
+    unregister_code(KC_RSHIFT);
+  SEND_STRING(SS_TAP(X_APPLICATION));
+  if (shift)
+    register_code(KC_LSHIFT);
+  register_code(key1);
+  unregister_code(key1);
+  if (shift)
+    unregister_code(KC_LSHIFT);
+  if (mods & MOD_BIT(KC_LSHIFT))
+    register_code(KC_LSHIFT);
+  if (mods & MOD_BIT(KC_RSHIFT))
+    register_code(KC_RSHIFT);
+  register_code(key2);
+  unregister_code(key2);
+}
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (IS_LAYER_ON(FLAYER) && record->event.pressed) {
     bool processed = false;
     switch(keycode) {
     case KC_E:
-      SEND_STRING(SS_TAP(X_APPLICATION) SS_TAP(X_QUOTE) SS_TAP(X_E));
+      send_mod_string(false, KC_QUOTE, KC_E);
       processed = true;
       break;
-    case KC_G:
-      SEND_STRING(SS_TAP(X_APPLICATION) SS_TAP(X_GRAVE) SS_TAP(X_E));
+    case KC_F:
+      send_mod_string(false, KC_GRAVE, KC_E);
+      processed = true;
+      break;
+    case KC_B:
+      send_mod_string(true, KC_CIRCUMFLEX, KC_E);
       processed = true;
       break;
     case KC_U:
-      SEND_STRING(SS_TAP(X_APPLICATION) SS_TAP(X_GRAVE) SS_TAP(X_U));
+      send_mod_string(false, KC_GRAVE, KC_U);
       processed = true;
       break;
     case KC_A:
-      SEND_STRING(SS_TAP(X_APPLICATION) SS_TAP(X_GRAVE) SS_TAP(X_A));
+      send_mod_string(false, KC_GRAVE, KC_A);
       processed = true;
       break;
     case KC_C:
-      SEND_STRING(SS_TAP(X_APPLICATION) SS_TAP(X_COMMA) SS_TAP(X_C));
+      send_mod_string(false, KC_COMMA, KC_C);
       processed = true;
       break;
     }
