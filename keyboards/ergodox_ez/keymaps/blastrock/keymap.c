@@ -207,19 +207,27 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       processed = true;
       break;
     case KC_F:
-      send_mod_string(false, KC_GRAVE, KC_E);
+      send_mod_string(true, KC_CIRCUMFLEX, KC_E);
       processed = true;
       break;
     case KC_B:
-      send_mod_string(true, KC_CIRCUMFLEX, KC_E);
+      send_mod_string(false, KC_GRAVE, KC_E);
       processed = true;
       break;
     case KC_U:
       send_mod_string(false, KC_GRAVE, KC_U);
       processed = true;
       break;
+    case KC_Y:
+      send_mod_string(true, KC_CIRCUMFLEX, KC_U);
+      processed = true;
+      break;
     case KC_A:
       send_mod_string(false, KC_GRAVE, KC_A);
+      processed = true;
+      break;
+    case KC_O:
+      send_mod_string(true, KC_CIRCUMFLEX, KC_O);
       processed = true;
       break;
     case KC_C:
