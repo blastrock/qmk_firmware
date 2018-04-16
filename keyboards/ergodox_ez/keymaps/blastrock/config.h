@@ -3,7 +3,7 @@
 
 #include "../../config.h"
 
-#define IGNORE_MOD_TAP_INTERRUPT
+//#undef IGNORE_MOD_TAP_INTERRUPT
 #define PERMISSIVE_HOLD
 //#define NO_DEBUG
 //#define DEBUG_ACTION

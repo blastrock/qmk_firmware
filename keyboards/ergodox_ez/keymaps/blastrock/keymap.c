@@ -254,6 +254,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       send_mod_string(false, KC_COMMA, KC_C);
       processed = true;
       break;
+    case KC_COMMA:
+      send_mod_string(false, KC_O, KC_E);
+      processed = true;
+      break;
+    case KC_X:
+      send_mod_string(true, KC_CIRCUMFLEX, KC_A);
+      processed = true;
+      break;
+    case KC_I:
+      send_mod_string(true, KC_CIRCUMFLEX, KC_I);
+      processed = true;
+      break;
     }
     if (processed) {
       if (is_oneshot_layer_active()) {
