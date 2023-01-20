@@ -4,6 +4,7 @@
 #include "../../config.h"
 
 #define IGNORE_MOD_TAP_INTERRUPT
+#define ONESHOT_TAP_TOGGLE 2
 // #define PERMISSIVE_HOLD
 // #define NO_DEBUG
 // #define DEBUG_ACTION
