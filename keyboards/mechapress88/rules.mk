@@ -1,8 +1,12 @@
 SRC += leds.c
 
+LTO_ENABLE = yes
+
 SERIAL_DRIVER = bitbang
 #CONSOLE_ENABLE=yes
 
 #RGB_MATRIX_ENABLE = yes
 # RGB_MATRIX_DRIVER = ws2812
-# WS2812_DRIVER = vendor
+# WS2812_DRIVER = bitbang
+
+#AUDIO_ENABLE = yes

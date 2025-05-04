@@ -19,7 +19,16 @@
 // #define NO_ACTION_TAPPING
 // #define NO_ACTION_ONESHOT
 
-#define SOFT_SERIAL_PIN D3
+#define SOFT_SERIAL_PIN D1
 #define EE_HANDS
 
-// #define SERIAL_DEBUG
+#define SERIAL_DEBUG
+
+#define WS2812_T1H 600
+#define WS2812_T0H 300
+#define WS2812_TIMING 900
+#define WS2812_TRST 90
+#define RGB_MATRIX_MAXIMUM_BRIGHTNESS 150
+
+#define AUDIO_PIN B6
+#define AUDIO_CLICKY

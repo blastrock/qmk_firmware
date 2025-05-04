@@ -125,8 +125,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
   EE_CLR,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                                         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-                                      RGB_TOG, RGB_HUI, RGB_VAI,     RGB_SAI, RGB_SPI, RGB_MOD,
-                                               RGB_HUD, RGB_VAD,     RGB_SAD, RGB_SPD
+                                               KC_TRNS, MU_TOGG,     KC_TRNS, CK_UP,
+                                      AU_TOGG, AU_NEXT, MU_NEXT,     KC_TRNS, CK_DOWN, CK_TOGG
 ),
 /* Keymap 2: Media and mouse keys
  *
@@ -157,8 +157,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TRNS, KC_TRNS, KC_MS_L, KC_MS_D, KC_MS_R, KC_TRNS,                       KC_TRNS, KC_P4,   KC_P5,   KC_P6,   KC_TRNS, KC_TRNS,
   KC_TRNS, KC_MPRV, KC_TRNS, KC_MPLY, KC_TRNS, KC_MNXT, KC_TRNS,     KC_TRNS, KC_TRNS, KC_P1,   KC_P2,   KC_P3,   KC_TRNS, KC_TRNS,
   KC_TRNS, KC_TRNS, KC_TRNS, KC_VOLD, KC_VOLU,                                         KC_TRNS, KC_P0,   KC_PDOT, KC_TRNS, KC_TRNS,
-                                               KC_TRNS, QK_BOOT,     KC_TRNS, KC_TRNS,
-                                      KC_TRNS, KC_WBAK, KC_TRNS,     KC_TRNS, KC_TRNS, KC_TRNS
+                                               RGB_HUI, RGB_VAI,     RGB_SAI, RGB_SPI,
+                                      RGB_TOG, RGB_HUD, RGB_VAD,     RGB_SAD, RGB_SPD, RGB_MOD
 ),
 };
 // clang-format on
