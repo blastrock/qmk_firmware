@@ -51,3 +51,19 @@ layer_state_t layer_state_set_kb(layer_state_t state) {
 
     return layer_state_set_user(state);
 };
+
+bool led_update_kb(led_t led_state) {
+    bool res = led_update_user(led_state);
+    if (res) {
+        if (!is_keyboard_master()) {
+            if (led_state.caps_lock) {
+                mechapress_right_led_1(true);
+                mechapress_right_led_2(true);
+            } else {
+                mechapress_right_led_1(false);
+                mechapress_right_led_2(false);
+            }
+        }
+    }
+    return false;
+}

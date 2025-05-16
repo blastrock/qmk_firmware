@@ -59,7 +59,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_LSFT,   LCTL_T(MY_Z), MY_X,          MY_C,    MY_V,    MY_B,    KC_LBRC,             KC_RBRC,     MY_N,    MY_M,    MY_COMM, MY_DOT,  RCTL_T(MY_SLSH), KC_RSFT,
   KC_LGUI,   KC_LALT,      KC_LGUI,       KC_LEFT, KC_RGHT,                                                     KC_UP,   KC_DOWN, KC_RGUI,  KC_RALT,        KC_RGUI,
                                                             KC_HOME, KC_END,              KC_PGUP, KC_PGDN,
-                                                   KC_SPC,  KC_BSPC, KC_APP,              KC_RGUI, KC_TAB, KC_ENT
+                                                   KC_SPC,  KC_BSPC, KC_APP,              KC_CAPS, KC_TAB, KC_ENT
 ),
 
 /* Keymap 0: Basic layer
