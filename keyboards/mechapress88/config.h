@@ -21,5 +21,3 @@
 
 #define SOFT_SERIAL_PIN D3
 #define EE_HANDS
-
-// #define SERIAL_DEBUG
