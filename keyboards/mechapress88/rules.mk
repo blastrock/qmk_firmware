@@ -1,6 +1,7 @@
 SRC += leds.c
 
 LTO_ENABLE = yes
+AVR_USE_MINIMAL_PRINTF = yes
 
 SERIAL_DRIVER = bitbang
 #CONSOLE_ENABLE=yes

@@ -10,6 +10,8 @@
         "console": false,
         "extrakey": true,
         "mousekey": true,
+        "grave_esc": false,
+        "magic": false,
         "nkro": true,
         "rgb_matrix": true,
         "audio": true
@@ -33,7 +35,7 @@
             }
         },
         "transport": {
-            "protocol": "serial",
+            "protocol": "i2c",
             "sync": {
                 "layer_state": true,
                 "indicators": true,
