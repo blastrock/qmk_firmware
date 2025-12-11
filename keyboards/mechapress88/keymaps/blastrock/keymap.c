@@ -49,6 +49,62 @@ enum custom_keycodes {
 #define MY_DOT KC_COMMA
 #define MY_SLSH KC_SLASH
 
+enum unicode_names {
+    EACUTE,
+    EGRAVE,
+    ECIRCUM,
+    UGRAVE,
+    UCIRCUM,
+    AGRAVE,
+    OCIRCUM,
+    CCEDILLA,
+    OE,
+    ACIRCUM,
+    ICIRCUM,
+
+    CAP_EACUTE,
+    CAP_EGRAVE,
+    CAP_ECIRCUM,
+    CAP_UGRAVE,
+    CAP_UCIRCUM,
+    CAP_AGRAVE,
+    CAP_OCIRCUM,
+    CAP_CCEDILLA,
+    CAP_OE,
+    CAP_ACIRCUM,
+    CAP_ICIRCUM,
+
+    EURO,
+};
+
+const uint32_t PROGMEM unicode_map[] = {
+    [EACUTE]   = 0x00E9,  // é
+    [EGRAVE]   = 0x00E8,  // è
+    [ECIRCUM]  = 0x00EA,  // ê
+    [UGRAVE]   = 0x00F9,  // ù
+    [UCIRCUM]  = 0x00FB,  // û
+    [AGRAVE]   = 0x00E0,  // à
+    [OCIRCUM]  = 0x00F4,  // ô
+    [CCEDILLA] = 0x00E7,  // ç
+    [OE]       = 0x0153,  // œ
+    [ACIRCUM]  = 0x00E2,  // â
+    [ICIRCUM]  = 0x00EE,  // î
+
+    [CAP_EACUTE]   = 0x00C9,  // É
+    [CAP_EGRAVE]   = 0x00C8,  // È
+    [CAP_ECIRCUM]  = 0x00CA,  // Ê
+    [CAP_UGRAVE]   = 0x00D9,  // Ù
+    [CAP_UCIRCUM]  = 0x00DB,  // Û
+    [CAP_AGRAVE]   = 0x00C0,  // À
+    [CAP_OCIRCUM]  = 0x00D4,  // Ô
+    [CAP_CCEDILLA] = 0x00C7,  // Ç
+    [CAP_OE]       = 0x0152,  // Œ
+    [CAP_ACIRCUM]  = 0x00C2,  // Â
+    [CAP_ICIRCUM]  = 0x00CE,  // Î
+
+    [EURO]     = 0x20AC,  // €
+};
+
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [MY] = LAYOUT_flat(
@@ -121,9 +177,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // left hand
   VRSN,    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+  UM(EURO), KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,     KC_TRNS, UP(UCIRCUM, CAP_UCIRCUM), UP(UGRAVE, CAP_UGRAVE), UP(ECIRCUM, CAP_ECIRCUM), UP(EGRAVE, CAP_EGRAVE), KC_TRNS, KC_TRNS,
+  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                       KC_TRNS, UP(AGRAVE, CAP_AGRAVE), UP(EACUTE, CAP_EACUTE), UP(OCIRCUM, CAP_OCIRCUM), KC_TRNS, KC_TRNS,
+  KC_TRNS, KC_TRNS, KC_TRNS, UP(CCEDILLA, CAP_CCEDILLA), KC_TRNS, KC_TRNS, KC_TRNS,     KC_TRNS, KC_TRNS, UP(ACIRCUM, CAP_ACIRCUM), KC_TRNS, UP(OE, CAP_OE), KC_TRNS, KC_TRNS,
   EE_CLR,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                                         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
                                                KC_TRNS, MU_TOGG,     KC_TRNS, CK_UP,
                                       AU_TOGG, AU_NEXT, MU_NEXT,     KC_TRNS, CK_DOWN, CK_TOGG
@@ -151,7 +207,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [MDIA] = LAYOUT_flat(
   // left hand
-  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+  KC_TRNS, QK_UNICODE_MODE_LINUX, QK_UNICODE_MODE_MACOS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
   KC_TRNS, DF(MY),  DF(QWER),KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,     KC_TRNS, KC_TRNS, KC_NUM,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
   KC_TRNS, KC_TRNS, KC_BTN1, KC_MS_U, KC_BTN2, KC_TRNS, KC_TRNS,     KC_TRNS, KC_TRNS, KC_P7,   KC_P8,   KC_P9,   KC_TRNS, KC_TRNS,
   KC_TRNS, KC_TRNS, KC_MS_L, KC_MS_D, KC_MS_R, KC_TRNS,                       KC_TRNS, KC_P4,   KC_P5,   KC_P6,   KC_TRNS, KC_TRNS,
@@ -179,54 +235,54 @@ void send_mod_string(bool shift, unsigned key1, unsigned key2) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    if (IS_LAYER_ON(SYMB) && record->event.pressed) {
+    if (IS_LAYER_ON(SYMB) && get_unicode_input_mode() == UNICODE_MODE_LINUX && record->event.pressed) {
         bool processed = false;
         switch (keycode) {
-            case KC_E:
+            case UP(EACUTE, CAP_EACUTE):
                 send_mod_string(false, KC_QUOTE, KC_E);
                 processed = true;
                 break;
-            case KC_F:
+            case UP(ECIRCUM, CAP_ECIRCUM):
                 send_mod_string(true, KC_CIRCUMFLEX, KC_E);
                 processed = true;
                 break;
-            case KC_B:
+            case UP(EGRAVE, CAP_EGRAVE):
                 send_mod_string(false, KC_GRAVE, KC_E);
                 processed = true;
                 break;
-            case KC_U:
+            case UP(UGRAVE, CAP_UGRAVE):
                 send_mod_string(false, KC_GRAVE, KC_U);
                 processed = true;
                 break;
-            case KC_Y:
+            case UP(UCIRCUM, CAP_UCIRCUM):
                 send_mod_string(true, KC_CIRCUMFLEX, KC_U);
                 processed = true;
                 break;
-            case KC_A:
+            case UP(AGRAVE, CAP_AGRAVE):
                 send_mod_string(false, KC_GRAVE, KC_A);
                 processed = true;
                 break;
-            case KC_O:
+            case UP(OCIRCUM, CAP_OCIRCUM):
                 send_mod_string(true, KC_CIRCUMFLEX, KC_O);
                 processed = true;
                 break;
-            case KC_C:
+            case UP(CCEDILLA, CAP_CCEDILLA):
                 send_mod_string(false, KC_COMMA, KC_C);
                 processed = true;
                 break;
-            case KC_COMMA:
+            case UP(OE, CAP_OE):
                 send_mod_string(false, KC_O, KC_E);
                 processed = true;
                 break;
-            case KC_X:
+            case UP(ACIRCUM, CAP_ACIRCUM):
                 send_mod_string(true, KC_CIRCUMFLEX, KC_A);
                 processed = true;
                 break;
-            case KC_I:
+            case UP(ICIRCUM, CAP_ICIRCUM):
                 send_mod_string(true, KC_CIRCUMFLEX, KC_I);
                 processed = true;
                 break;
-            case KC_EQL:
+            case UM(EURO):
                 send_mod_string(false, KC_EQL, KC_E);
                 processed = true;
                 break;

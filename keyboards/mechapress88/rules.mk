@@ -11,3 +11,4 @@ SERIAL_DRIVER = bitbang
 # WS2812_DRIVER = bitbang
 
 #AUDIO_ENABLE = yes
+UNICODEMAP_ENABLE = yes
