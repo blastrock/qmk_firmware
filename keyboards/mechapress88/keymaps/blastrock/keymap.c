@@ -178,7 +178,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   VRSN,    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
   UM(EURO), KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,     KC_TRNS, UP(UCIRCUM, CAP_UCIRCUM), UP(UGRAVE, CAP_UGRAVE), UP(ECIRCUM, CAP_ECIRCUM), UP(EGRAVE, CAP_EGRAVE), KC_TRNS, KC_TRNS,
-  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                       KC_TRNS, UP(AGRAVE, CAP_AGRAVE), UP(EACUTE, CAP_EACUTE), UP(OCIRCUM, CAP_OCIRCUM), KC_TRNS, KC_TRNS,
+  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                       UP(ICIRCUM, CAP_ICIRCUM), UP(AGRAVE, CAP_AGRAVE), UP(EACUTE, CAP_EACUTE), UP(OCIRCUM, CAP_OCIRCUM), KC_TRNS, KC_TRNS,
   KC_TRNS, KC_TRNS, KC_TRNS, UP(CCEDILLA, CAP_CCEDILLA), KC_TRNS, KC_TRNS, KC_TRNS,     KC_TRNS, KC_TRNS, UP(ACIRCUM, CAP_ACIRCUM), KC_TRNS, UP(OE, CAP_OE), KC_TRNS, KC_TRNS,
   EE_CLR,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                                         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
                                                KC_TRNS, MU_TOGG,     KC_TRNS, CK_UP,
@@ -284,6 +284,24 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 break;
             case UM(EURO):
                 send_mod_string(false, KC_EQL, KC_E);
+                processed = true;
+                break;
+        }
+        if (processed) {
+            if (is_oneshot_layer_active()) {
+                clear_oneshot_layer_state(ONESHOT_OTHER_KEY_PRESSED);
+            }
+            return false;
+        }
+    }
+    if (IS_LAYER_ON(SYMB) && get_unicode_input_mode() == UNICODE_MODE_MACOS && record->event.pressed) {
+        bool processed = false;
+        switch (keycode) {
+            case UP(AGRAVE, CAP_AGRAVE):
+                register_code(KC_RALT);
+                register_code(KC_J);
+                unregister_code(KC_J);
+                unregister_code(KC_RALT);
                 processed = true;
                 break;
         }
